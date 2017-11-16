@@ -4,7 +4,6 @@ import { BrowserRouter, HashRouter, Route, Link } from 'react-router-dom'
 import One from './components/one/one'
 import Two from './components/two/two'
 import { ipcRenderer } from 'electron'
-console.log
 class Home extends React.Component {
   constructor() {
     super()

@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 console.log(path.join(__dirname, 'public'))
- module.exports = {
+ module.exports = [{
   // 项目入口文件
   entry: {
     app: path.join(__dirname, 'app', 'app.js'),
@@ -32,7 +32,7 @@ console.log(path.join(__dirname, 'public'))
     },
     extensions: ['.js', '.jsx', '.json', '.css']
   },
-  target: 'web',
+  target: 'electron-renderer',
   // 构建本地服务器
   devServer: {
     contentBase: './public',
@@ -97,4 +97,27 @@ console.log(path.join(__dirname, 'public'))
       name: 'vendor'
     })
   ],
- }
+ }, {
+  entry: {
+    main: path.join(__dirname, 'main.js')
+  },
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename:  '[name].js'
+  },
+  target: 'electron-main',
+  module: {
+    rules: [
+      {	
+        test:  /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['latest', 'react']
+          }
+        },
+        exclude: path.join(__dirname, 'node_modules')
+      }
+    ]
+  },
+ }]
