@@ -1,4 +1,5 @@
-const { BrowserWindow, ipcMain } = require('electron')
+// const { BrowserWindow, ipcMain } = require('electron')
+import { BrowserWindow, ipcMain } from 'electron'
 
 var mainWindow = null
 

@@ -3,7 +3,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules\\.bin\\webpack --env=prod",
     "devel": "webpack-dev-server --open  --env=dev",
-    "ele": "node_modules\\.bin\\electron main.js"
+    "ele": "node_modules\\.bin\\electron main-devel.js"
   },
   "dependencies": {
     "react": "^16.0.0",
@@ -16,6 +16,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "electron": "1.7.9",
